@@ -308,6 +308,7 @@
             android:layout_marginStart="6dp"
             android:layout_marginTop="69dp"
             android:text="EQ"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -317,6 +318,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="6dp"
             android:text="ResetEQ"
+            android:textSize="11sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/butStopEq" />
 
@@ -595,6 +597,16 @@
             android:text="TextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/butMtg"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="6dp"
+            android:text="MTG"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/butReEq" />
 
     </android.support.constraint.ConstraintLayout>
 

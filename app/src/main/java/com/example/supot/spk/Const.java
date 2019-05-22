@@ -7,7 +7,7 @@ public class Const {
     public static final String sp_channel = "SP_CHANNEL";
 
     public static final String master_eq_slide = "master_eq_slide";
-    public static final String master_eq_value_1 = "master_eq_slide_value_1";
+    public static final String master_eq_slide_value_1 = "master_eq_slide_value_1";
     public static final String master_eq_slide_value_2 = "master_eq_slide_value_2";
     public static final String master_eq_slide_value_3 = "master_eq_slide_value_3";
     public static final String master_eq_slide_value_4 = "master_eq_slide_value_4";

@@ -30,12 +30,12 @@ public class fmLoad extends Fragment {
         // Required empty public constructor
     }
 
-    Context context;
-    ListView loadList;
-    ArrayList<String> arrayList;
-    ArrayAdapter adapter;
-    Button butOpen,butDel;
-    TextView TextView2;
+    private Context context;
+    private ListView loadList;
+    private ArrayList<String> arrayList;
+    private ArrayAdapter adapter;
+    private Button butOpen,butDel;
+    private TextView TextView2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

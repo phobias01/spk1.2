@@ -2,6 +2,7 @@ package com.example.supot.spk;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.SparseBooleanArray;
@@ -28,19 +29,23 @@ public class fmHome extends Fragment {
     public fmHome() {
         // Required empty public constructor
     }
-    TextView tvMaster;
-    SeekBar masterBar;
-    Context context;
-    ListView listSpk,listG1,listG2,listG3,listG4;
-    ArrayList<String> arraySpk,arrayG1,arrayG2,arrayG3,arrayG4;
-    ArrayAdapter adapterSpk,adapterG1,adapterG2,adapterG3,adapterG4;
-    Button butExport,butG1,butG2,butG3,butG4;
+    private TextView tvMaster;
+    private SeekBar masterBar;
+    private Context context;
+    private ListView listSpk,listG1,listG2,listG3,listG4;
+    private ArrayList<String> arraySpk,arrayG1,arrayG2,arrayG3,arrayG4;
+    private ArrayAdapter adapterSpk,adapterG1,adapterG2,adapterG3,adapterG4;
+    private Button butExport,butG1,butG2,butG3,butG4;
+    SharedPreferences sp;
+    SharedPreferences.Editor editor;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fm_home, container, false);
+        sp = this.getActivity().getSharedPreferences(Const.sp_channel, Context.MODE_PRIVATE);
+        editor = sp.edit();
         initmasterBar(view);
         initmanegeGroup(view);
         return view;
@@ -49,12 +54,18 @@ public class fmHome extends Fragment {
     public void initmasterBar(View view){
         masterBar = (SeekBar) view.findViewById(R.id.masterBar);
         tvMaster = (TextView) view.findViewById(R.id.tvMaster);
+        int saveProgress = sp.getInt(Const.master_eq_slide,40)-80;
+        tvMaster.setText(String.valueOf("MASTER : "+saveProgress+" dB"));
         masterBar.setMax(80);
         masterBar.setProgress(40);
+        masterBar.setProgress(sp.getInt(Const.master_eq_slide,40));
         masterBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            float progressChanged;
+            int value;
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                float  progressChanged = progress-80;
+                progressChanged = progress-80;
+                value = progress;
                 tvMaster.setText(String.format("MASTER : %.0f dB",progressChanged));
 
             }
@@ -66,7 +77,8 @@ public class fmHome extends Fragment {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                //Toast.makeText(getContext(), "MASTER : " + Math.abs(progressChanged),Toast.LENGTH_SHORT).show();
+                editor.putInt(Const.master_eq_slide,value);
+                editor.commit();
 
             }
         });

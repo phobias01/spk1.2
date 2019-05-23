@@ -294,11 +294,11 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBar
-                android:id="@+id/eqBar_Master"
+                android:id="@+id/BarG2"
                 android:layout_width="wrap_content"
                 android:layout_height="232dp"
                 android:splitTrack="false"
-                app:seekBarRotation="CW90" /> <!-- Rotation: CW90 or CW270 -->
+                app:seekBarRotation="CW270" /> <!-- Rotation: CW90 or CW270 -->
         </com.h6ah4i.android.widget.verticalseekbar.VerticalSeekBarWrapper>
 
         <Button
@@ -317,7 +317,7 @@
             android:layout_width="70dp"
             android:layout_height="40dp"
             android:layout_marginStart="6dp"
-            android:text="ResetEQ"
+            android:text="Reset"
             android:textSize="11sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/butStopEq" />

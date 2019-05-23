@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_eq:
                 fm = new fmEQ();
-                strTitle = "EQ";
+                strTitle = "EQUALIZER";
                 break;
             case R.id.nav_cross:
                 fm = new fmCrossover();

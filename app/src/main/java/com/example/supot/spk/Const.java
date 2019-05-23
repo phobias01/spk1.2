@@ -24,5 +24,20 @@ public class Const {
     public static final String master_eq_slide_value_15 = "master_eq_slide_value_15";
     public static final String master_eq_slide_value_16 = "master_eq_slide_value_16";
 
-    public static final String master_eq_button_status = "master_eq_button_status";
+    public static final String delay_bar_1 = "delay_bar_1";
+    public static final String delay_bar_2 = "delay_bar_2";
+    public static final String delay_bar_3 = "delay_bar_3";
+    public static final String delay_bar_4 = "delay_bar_4";
+
+    public static final String group_value_1 = "group_value_1";
+    public static final String group_value_2 = "group_value_2";
+    public static final String group_value_3 = "group_value_3";
+    public static final String group_value_4 = "group_value_4";
+
+    public static final String switch_delay_1 = "switch_delay_1";
+    public static final String switch_delay_2 = "switch_delay_2";
+    public static final String switch_delay_3 = "switch_delay_3";
+    public static final String switch_delay_4 = "switch_delay_4";
+
+
 }

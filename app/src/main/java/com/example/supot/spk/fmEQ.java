@@ -6,13 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 /**
@@ -60,7 +60,7 @@ public class fmEQ extends Fragment {
         eqBar_12k = (SeekBar) view.findViewById(R.id.eqBar_12k);
         eqBar_16k = (SeekBar) view.findViewById(R.id.eqBar_16k);
         eqBar_20k = (SeekBar) view.findViewById(R.id.eqBar_20k);
-        eqBar_Master = (SeekBar) view.findViewById(R.id.eqBar_Master);
+        eqBar_Master = (SeekBar) view.findViewById(R.id.BarG2);
 
         butMtg = (Button) view.findViewById(R.id.butMtg);
         butReEq = (Button) view.findViewById(R.id.butReEq);
@@ -68,7 +68,8 @@ public class fmEQ extends Fragment {
 
         tvEq = (TextView) view.findViewById(R.id.tvEq);
         //textV1 = (TextView) view.findViewById(R.id.textV1);
-
+        int saveProgress = sp.getInt(Const.master_eq_slide,40)-80;
+        tvEq.setText(String.valueOf("MASTER : "+saveProgress+" dB"));
         initEqBar();
 
         eqBar_20.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -415,7 +416,7 @@ public class fmEQ extends Fragment {
             int value;
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                progressChanged = (progress-150)*0.1f;;
+                progressChanged = progress-80;
                 value = progress;
                 tvEq.setText(String.format("MASTER : %.0f dB",progressChanged));
             }
